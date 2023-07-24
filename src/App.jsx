@@ -16,11 +16,23 @@ function App() {
       <StyledApp>
         <Row>
           <Row type="horizontal">
-            <Heading type="h1">The Wild Oasis</Heading>
+            <Heading as="h1">The Wild Oasis</Heading>
             <div>
               <Heading as="h2">Check in and out</Heading>
-              <Button onClick={() => alert("Check In")}>Check In</Button>
-              <Button onClick={() => alert("Check Out")}>Check Out</Button>
+              <Button
+                variation="primary"
+                size="medium"
+                onClick={() => alert("Check In")}
+              >
+                Check In
+              </Button>
+              <Button
+                variation="secondary"
+                size="small"
+                onClick={() => alert("Check Out")}
+              >
+                Check Out
+              </Button>
             </div>
           </Row>
           <Row>
