@@ -14,7 +14,7 @@ function App() {
     <>
       <GlobalStyles />
       <StyledApp>
-        <Row type="vertical">
+        <Row>
           <Row type="horizontal">
             <Heading type="h1">The Wild Oasis</Heading>
             <div>
@@ -23,7 +23,7 @@ function App() {
               <Button onClick={() => alert("Check Out")}>Check Out</Button>
             </div>
           </Row>
-          <Row type="vertical">
+          <Row>
             <Heading as="h3">Form</Heading>
             <form>
               <Input type="number" placeholder="Number of guests" />
