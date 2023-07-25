@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { formatCurrency } from "../../utils/helpers";
+import Button from "../../ui/Button";
 
 const TableRow = styled.div`
   display: grid;
@@ -39,8 +41,21 @@ const Discount = styled.div`
   color: var(--color-green-700);
 `;
 
-function CabinRow() {
-  return <div>Row</div>;
+function CabinRow({ cabin }) {
+  const { name, image, maxCapacity, regularPrice, discount } = cabin;
+
+  return (
+    <TableRow role="row">
+      <Img src={image} />
+      <Cabin>{name}</Cabin>
+      <div>Fits up to {maxCapacity} guest</div>
+      <Price>{formatCurrency(regularPrice)}</Price>
+      <Discount>{formatCurrency(discount)}</Discount>
+      <Button size="small" variation="secondary">
+        Delete
+      </Button>
+    </TableRow>
+  );
 }
 
 export default CabinRow;
