@@ -23,7 +23,7 @@ export async function deleteCabin(id) {
 export async function addCabin(newCabin) {
   const { data, error } = await supabase
     .from("cabins")
-    .insert([{ newCabin }])
+    .insert([newCabin])
     .select();
 
   if (error) {
