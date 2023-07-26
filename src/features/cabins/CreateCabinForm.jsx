@@ -18,14 +18,14 @@ function CreateCabinForm() {
   const { isLoading: isCreating, mutate } = useMutation({
     mutationFn: addCabin,
     onSuccess: () => {
-      toast.success("Cabin succesfully created");
+      toast.success("Cabin succesfully created", { position: "top-right" });
       // To refetch data and rerender component
       queryClient.invalidateQueries({
         queryKey: ["cabins"],
       });
       reset();
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message, { position: "top-right" }),
   });
 
   // Second part use our own onSubmit

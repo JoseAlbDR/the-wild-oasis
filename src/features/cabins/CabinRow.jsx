@@ -61,12 +61,12 @@ function CabinRow({ cabin }) {
     mutationFn: deleteCabin,
     // If succeed, invalidate cabin query to refetch the data and rerender component
     onSuccess: () => {
-      toast.success("Cabin successfully deleted");
+      toast.success("Cabin successfully deleted", { position: "top-right" });
       queryClient.invalidateQueries({
         queryKey: ["cabins"],
       });
     },
-    onError: (err) => toast.error(err.message),
+    onError: (err) => toast.error(err.message, { position: "top-right" }),
   });
 
   return (
