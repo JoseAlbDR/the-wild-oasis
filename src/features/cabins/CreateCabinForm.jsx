@@ -39,7 +39,7 @@ function CreateCabinForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      <FormRow errors={errors} label="Name">
+      <FormRow error={errors?.name?.message} label="Name">
         <Input
           type="text"
           id="name"
