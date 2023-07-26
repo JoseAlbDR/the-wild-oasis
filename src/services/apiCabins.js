@@ -47,7 +47,9 @@ export async function addCabin(newCabin) {
   if (storageError) {
     console.error(error);
     await deleteCabin(data.id);
-    throw new Error("Could not upload the image. Try again later.");
+    throw new Error(
+      "Could not upload the image, and the cabin was not created."
+    );
   }
 
   // Delete the cabin IF there was an error uploading the image
