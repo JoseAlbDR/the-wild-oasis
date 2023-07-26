@@ -31,7 +31,8 @@ function CreateCabinForm() {
   // Second part use our own onSubmit
   function onSubmit(data) {
     console.log(data);
-    mutate({ ...data, image: data.image.at(0) });
+    // set image to data.image recieved from form
+    mutate({ ...data, image: data.image[0] });
   }
 
   function onError(errors) {
