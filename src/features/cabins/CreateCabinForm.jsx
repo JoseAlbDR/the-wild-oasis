@@ -48,26 +48,29 @@ const Error = styled.span`
 
 function CreateCabinForm() {
   // First part get register and handleSubmit from hook
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const queryClient = useQueryClient();
 
   const { isLoading: isCreating, mutate } = useMutation({
     mutationFn: addCabin,
     onSuccess: () => {
       toast.success("Cabin succesfully created");
+      // To refetch data and rerender component
       queryClient.invalidateQueries({
-        queryKeys: ["cabins"],
+        queryKey: ["cabins"],
       });
+      reset();
     },
     onError: (err) => toast.error(err.message),
   });
+
   // Second part use our own onSubmit
   function onSubmit(data) {
     mutate(data);
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit((data) => mutate(data))}>
       <FormRow>
         <Label htmlFor="name">Cabin name</Label>
         <Input type="text" id="name" {...register("name")} />
