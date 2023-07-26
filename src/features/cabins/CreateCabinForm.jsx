@@ -39,10 +39,11 @@ function CreateCabinForm() {
 
   return (
     <Form onSubmit={handleSubmit(onSubmit, onError)}>
-      <FormRow error={errors?.name?.message} label="Name">
+      <FormRow error={errors?.name?.message} label="Cabin Name">
         <Input
           type="text"
           id="name"
+          disabled={isCreating}
           {...register("name", {
             required: "This field is required",
             min: {
@@ -57,6 +58,7 @@ function CreateCabinForm() {
         <Input
           type="number"
           id="maxCapacity"
+          disabled={isCreating}
           {...register("maxCapacity", {
             required: "This field is required",
           })}
@@ -67,6 +69,7 @@ function CreateCabinForm() {
         <Input
           type="number"
           id="regularPrice"
+          disabled={isCreating}
           {...register("regularPrice", {
             required: "This field is required",
             min: {
@@ -81,6 +84,7 @@ function CreateCabinForm() {
         <Input
           type="number"
           id="discount"
+          disabled={isCreating}
           defaultValue={0}
           {...register("discount", {
             required: "This field is required",
@@ -98,6 +102,7 @@ function CreateCabinForm() {
         <Textarea
           type="number"
           id="description"
+          disabled={isCreating}
           defaultValue=""
           {...register("description", {
             required: "This field is required",
@@ -106,7 +111,7 @@ function CreateCabinForm() {
       </FormRow>
 
       <FormRow label="Cabin photo">
-        <FileInput id="image" accept="image/*" />
+        <FileInput id="image" accept="image/*" disabled={isCreating} />
       </FormRow>
 
       <FormRow>
