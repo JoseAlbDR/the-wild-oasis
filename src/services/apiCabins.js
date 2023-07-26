@@ -41,17 +41,17 @@ export async function addCabin(newCabin) {
 
   // Upload image
   const { storageError } = await supabase.storage
-    .from("cabin-images")
+    .from("cabins-images")
     .upload(imageName, newCabin.image);
 
   if (storageError) {
     console.error(error);
+    // Delete the cabin IF there was an error uploading the image
     await deleteCabin(data.id);
     throw new Error(
       "Could not upload the image, and the cabin was not created."
     );
   }
 
-  // Delete the cabin IF there was an error uploading the image
   return data;
 }
