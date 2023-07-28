@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers";
-import { deleteCabin } from "../../services/apiCabins";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { toast } from "react-hot-toast";
 import { useState } from "react";
 import CreateCabinForm from "./CreateCabinForm";
+import useDeleteCabin from "./useDeleteCabin";
 
 const TableRow = styled.div`
   display: grid;
@@ -56,20 +54,22 @@ function CabinRow({ cabin }) {
     discount,
   } = cabin;
 
-  // Get queryClient declared and provided in App.jsx
-  const queryClient = useQueryClient();
+  const { isDeleting, deleteCabin } = useDeleteCabin();
 
-  const { isLoading: isDeleting, mutate } = useMutation({
-    mutationFn: deleteCabin,
-    // If succeed, invalidate cabin query to refetch the data and rerender component
-    onSuccess: () => {
-      toast.success("Cabin successfully deleted", { position: "top-right" });
-      queryClient.invalidateQueries({
-        queryKey: ["cabins"],
-      });
-    },
-    onError: (err) => toast.error(err.message, { position: "top-right" }),
-  });
+  // Get queryClient declared and provided in App.jsx
+  // const queryClient = useQueryClient();
+
+  // const { isLoading: isDeleting, mutate } = useMutation({
+  //   mutationFn: deleteCabin,
+  //   // If succeed, invalidate cabin query to refetch the data and rerender component
+  //   onSuccess: () => {
+  //     toast.success("Cabin successfully deleted", { position: "top-right" });
+  //     queryClient.invalidateQueries({
+  //       queryKey: ["cabins"],
+  //     });
+  //   },
+  //   onError: (err) => toast.error(err.message, { position: "top-right" }),
+  // });
 
   return (
     <>
@@ -85,7 +85,7 @@ function CabinRow({ cabin }) {
         )}
         <div>
           <button onClick={() => setShowForm((show) => !show)}>Edit</button>
-          <button onClick={() => mutate(cabinId)} disabled={isDeleting}>
+          <button onClick={() => deleteCabin(cabinId)} disabled={isDeleting}>
             Delete
           </button>
         </div>
