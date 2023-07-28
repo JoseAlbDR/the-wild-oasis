@@ -20,7 +20,7 @@ export async function deleteCabin(id) {
   return data;
 }
 
-export async function addEditCabin(newCabin, id) {
+export async function addUpdateCabin(newCabin, id) {
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 
   // Create an unique image name, replace all "/" that supabase adds
