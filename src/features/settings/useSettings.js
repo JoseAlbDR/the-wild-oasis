@@ -5,7 +5,7 @@ export const useSettings = () => {
   const {
     isLoading,
     data: settings,
-    isError,
+    error: isError,
   } = useQuery({
     // Identifies each data
     queryKey: ["settings"],

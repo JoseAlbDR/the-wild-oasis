@@ -5,7 +5,7 @@ export const useCabins = () => {
   const {
     isLoading,
     data: cabins,
-    isError,
+    error: isError,
   } = useQuery({
     // Identifies each data
     queryKey: ["cabins"],
