@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers";
 import { useState } from "react";
 import CreateCabinForm from "./CreateCabinForm";
-import useDeleteCabin from "./useDeleteCabin";
+import { useDeleteCabin } from "./useDeleteCabin";
 
 const TableRow = styled.div`
   display: grid;
@@ -55,21 +55,6 @@ function CabinRow({ cabin }) {
   } = cabin;
 
   const { isDeleting, deleteCabin } = useDeleteCabin();
-
-  // Get queryClient declared and provided in App.jsx
-  // const queryClient = useQueryClient();
-
-  // const { isLoading: isDeleting, mutate } = useMutation({
-  //   mutationFn: deleteCabin,
-  //   // If succeed, invalidate cabin query to refetch the data and rerender component
-  //   onSuccess: () => {
-  //     toast.success("Cabin successfully deleted", { position: "top-right" });
-  //     queryClient.invalidateQueries({
-  //       queryKey: ["cabins"],
-  //     });
-  //   },
-  //   onError: (err) => toast.error(err.message, { position: "top-right" }),
-  // });
 
   return (
     <>
