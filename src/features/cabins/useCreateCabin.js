@@ -1,12 +1,12 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addEditCabin as addEditCabinApi } from "../../services/apiCabins";
+import { addUpdateCabin as addUpdateCabinApi } from "../../services/apiCabins";
 import { toast } from "react-hot-toast";
 
 export const useCreateCabin = () => {
   const queryClient = useQueryClient();
 
   const { isLoading: isCreating, mutate: createCabin } = useMutation({
-    mutationFn: addEditCabinApi,
+    mutationFn: addUpdateCabinApi,
     onSuccess: () => {
       toast.success("Cabin succesfully created", { position: "top-right" });
       // To refetch data and rerender component
