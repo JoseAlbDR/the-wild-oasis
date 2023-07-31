@@ -1,4 +1,5 @@
 import { ClickAwayListener } from "@mui/material";
+import { cloneElement, createContext, useContext, useState } from "react";
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
@@ -52,20 +53,52 @@ const Button = styled.button`
   }
 `;
 
-function Modal({ children, onClose }) {
+// 1 Create a context
+const ModalContext = createContext();
+
+// 2 Create a parent component
+function Modal({ children }) {
+  const [openName, setOpenName] = useState("");
+
+  const close = () => setOpenName("");
+  const open = (name) => setOpenName(name);
+
+  return (
+    <ModalContext.Provider value={{ openName, close, open }}>
+      {children}
+    </ModalContext.Provider>
+  );
+}
+
+// 3 Create child components to help implementing the common tasks
+function Open({ children, opens: opensWindowName }) {
+  const { open } = useContext(ModalContext);
+
+  return cloneElement(children, { onClick: () => open(opensWindowName) });
+}
+
+function Window({ children, name }) {
+  const { openName, close } = useContext(ModalContext);
+
+  if (name !== openName) return null;
+
   return createPortal(
     <Overlay>
-      <ClickAwayListener onClickAway={onClose}>
+      <ClickAwayListener onClickAway={close}>
         <StyledModal>
-          <Button onClick={onClose}>
+          <Button onClick={close}>
             <HiXMark />
           </Button>
-          <div>{children}</div>
+          <div>{cloneElement(children, { onCloseModal: close })}</div>
         </StyledModal>
       </ClickAwayListener>
     </Overlay>,
     document.body
   );
 }
+
+// 4 Add  hild components as properties to the parent component
+Modal.Open = Open;
+Modal.Window = Window;
 
 export default Modal;
