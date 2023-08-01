@@ -21,19 +21,17 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
 
   const { errors } = formState;
   const { isCreating, createCabin } = useCreateCabin();
-  const { isEditing, editCabin } = useUpdateCabin();
+  const { isUpdating, updateCabin } = useUpdateCabin();
 
-  const isWorking = isCreating || isEditing;
+  const isWorking = isCreating || isUpdating;
 
   // Second part use our own onSubmit
   function onSubmit(data) {
-    console.log(data);
-
     // If the image is a string, cabin already has an image uploaded, if not upload new image
     const image = typeof data.image === "string" ? data.image : data.image[0];
 
     if (isEditSession)
-      editCabin(
+      updateCabin(
         { newCabinData: { ...data, image }, id: editId },
         // Call reset() from react-form directly in editCabin mutation
         {
