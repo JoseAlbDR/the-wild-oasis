@@ -87,14 +87,15 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
-  const modalRef = useCloseModal(close);
+  // const modalRef = useCloseModal(close);
 
   if (name !== openName) return null;
 
   return createPortal(
     <Overlay>
       <ClickAwayListener onClickAway={close}>
-        <StyledModal ref={modalRef}>
+        {/* <StyledModal ref={modalRef}> */}
+        <StyledModal>
           <Button onClick={close}>
             <HiXMark />
           </Button>
@@ -102,11 +103,12 @@ function Window({ children, name }) {
         </StyledModal>
       </ClickAwayListener>
     </Overlay>,
+    // React portal
     document.body
   );
 }
 
-// 4 Add  hild components as properties to the parent component
+// 4 Add  child components as properties to the parent component
 Modal.Open = Open;
 Modal.Window = Window;
 
