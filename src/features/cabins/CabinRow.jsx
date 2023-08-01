@@ -1,12 +1,9 @@
 import styled from "styled-components";
 import { formatCurrency } from "../../utils/helpers";
-import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
-import { HiPencil, HiSquare2Stack, HiTrash } from "react-icons/hi2";
+import { HiSquare2Stack } from "react-icons/hi2";
 import { useCreateCabin } from "./useCreateCabin";
-import { toast } from "react-hot-toast";
 import Modal from "../../ui/Modal";
-import ConfirmDelete from "../../ui/ConfirmDelete";
 import UpdateCabin from "./UpdateCabin";
 import DeleteCabin from "./DeleteCabin";
 
