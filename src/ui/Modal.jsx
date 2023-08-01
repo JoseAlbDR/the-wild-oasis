@@ -10,6 +10,7 @@ import {
 import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
+import { useCloseModal } from "../hooks/useCloseModal";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -86,20 +87,7 @@ function Open({ children, opens: opensWindowName }) {
 
 function Window({ children, name }) {
   const { openName, close } = useContext(ModalContext);
-  // const modalRef = useRef();
-
-  // useEffect(
-  //   function () {
-  //     function handleClick(e) {
-  //       if (modalRef.current && !modalRef.current.contains(e.target)) close();
-  //     }
-
-  //     document.addEventListener("click", handleClick, true);
-
-  //     return () => document.removeEventListener("click", handleClick, true);
-  //   },
-  //   [close]
-  // );
+  const modalRef = useCloseModal(close);
 
   if (name !== openName) return null;
 
