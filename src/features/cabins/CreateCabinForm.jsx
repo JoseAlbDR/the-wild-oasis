@@ -46,7 +46,10 @@ function CreateCabinForm({ cabinToEdit = {}, onCloseModal }) {
         { ...data, image },
         // Call reset() from react-form directly in createCabin mutation
         {
-          onSuccess: () => reset(),
+          onSuccess: () => {
+            reset();
+            onCloseModal?.();
+          },
         }
       );
   }
