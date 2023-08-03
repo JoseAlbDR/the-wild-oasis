@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { useUrl } from "../hooks/useUrl";
+import { useSearchParams } from "react-router-dom";
 
 const StyledFilter = styled.div`
   border: 1px solid var(--color-grey-100);
@@ -36,9 +37,13 @@ const FilterButton = styled.button`
 `;
 
 function Filter({ filterField, options }) {
+  const [searchParams, setSearchParams] = useSearchParams();
   const { setUrl, getUrl } = useUrl(filterField, options.at(0).value);
+
   function handleClick(value) {
-    setUrl(value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
+    searchParams.set(filterField, value);
+    setSearchParams(searchParams);
   }
 
   return (
