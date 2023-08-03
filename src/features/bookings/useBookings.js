@@ -16,19 +16,21 @@ export const useBookings = () => {
   // SORT
   const sortValue = searchParams.get("sortBy") || "startDate-esc";
   const [field, direction] = sortValue.split("-");
-
   const sortBy = { field, direction };
+
+  // PAGINATION
+  const page = !searchParams.get("page") ? 1 : +searchParams.get("page");
 
   const {
     isLoading,
-    data: bookings,
+    data: { data: bookings, count } = {},
     error: isError,
   } = useQuery({
     // Add filter, so whenever filter changes react query will refetch the data AWESOME
     // DEPENDENCY ARRAY LIKE USE EFFECT
-    queryKey: ["bookings", filter, sortBy],
-    queryFn: () => getBookings({ filter, sortBy }),
+    queryKey: ["bookings", filter, sortBy, page],
+    queryFn: () => getBookings({ filter, sortBy, page }),
   });
 
-  return { isLoading, bookings, isError };
+  return { isLoading, bookings, isError, count };
 };
