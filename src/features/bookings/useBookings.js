@@ -21,7 +21,7 @@ export const useBookings = () => {
   const sortBy = { field, direction };
 
   // PAGINATION
-  const page = !searchParams.get("page") ? 1 : +searchParams.get("page");
+  const page = !searchParams.get("page") ? 1 : Number(searchParams.get("page"));
 
   // QUERY
   const {
@@ -37,10 +37,17 @@ export const useBookings = () => {
 
   // PRE-FETCHING
   const pageCount = Math.ceil(count / PAGE_SIZE);
+
   if (page < pageCount)
     queryClient.prefetchQuery({
       queryKey: ["bookings", filter, sortBy, page + 1],
       queryFn: () => getBookings({ filter, sortBy, page: page + 1 }),
+    });
+
+  if (page > 1)
+    queryClient.prefetchQuery({
+      queryKey: ["bookings", filter, sortBy, page - 1],
+      queryFn: () => getBookings({ filter, sortBy, page: page - 1 }),
     });
 
   return { isLoading, bookings, isError, count };
