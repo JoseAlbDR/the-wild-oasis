@@ -13,6 +13,12 @@ export const useBookings = () => {
       : // Instead of passing 1 object we can pass an array of objects to add more filters
         { field: "status", value: filterValue, method: "eq" };
 
+  // SORT
+  const sortValue = searchParams.get("sortBy") || "startDate-esc";
+  const [field, direction] = sortValue.split("-");
+
+  const sortBy = { field, direction };
+
   const {
     isLoading,
     data: bookings,
@@ -20,8 +26,8 @@ export const useBookings = () => {
   } = useQuery({
     // Add filter, so whenever filter changes react query will refetch the data AWESOME
     // DEPENDENCY ARRAY LIKE USE EFFECT
-    queryKey: ["bookings", filter],
-    queryFn: () => getBookings({ filter }),
+    queryKey: ["bookings", filter, sortBy],
+    queryFn: () => getBookings({ filter, sortBy }),
   });
 
   return { isLoading, bookings, isError };
