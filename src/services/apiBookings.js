@@ -7,6 +7,7 @@ export async function getBookings({ filter, sortBy }) {
     .select("*, cabins(name), guests(fullName, email)");
 
   // FILTER
+  // We can add any filter we want if filter is an array of filters and we map then to query
   if (filter !== null)
     query = query[filter.method || "eq"](filter.field, filter.value);
 
