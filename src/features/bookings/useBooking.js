@@ -10,7 +10,7 @@ export const useBooking = () => {
     error: isError,
   } = useQuery({
     // Identifies each data
-    queryKey: ["bookings"],
+    queryKey: ["booking"],
     queryFn: () => getBooking(bookingId),
     retry: false,
   });
