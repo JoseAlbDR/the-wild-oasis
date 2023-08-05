@@ -10,6 +10,7 @@ function LoginForm() {
   const { isLoginIn, login } = useLogin();
 
   function onSubmit(user) {
+    if (!user) return;
     login(user, { onSuccess: reset });
   }
 
