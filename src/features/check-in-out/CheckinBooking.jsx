@@ -63,7 +63,7 @@ function CheckinBooking() {
       </Box>
 
       <ButtonGroup>
-        <Button onClick={handleCheckin} disabled={confirmPaid}>
+        <Button onClick={handleCheckin} disabled={!confirmPaid}>
           Check in booking #{bookingId}
         </Button>
         <Button variation="secondary" onClick={moveBack}>
