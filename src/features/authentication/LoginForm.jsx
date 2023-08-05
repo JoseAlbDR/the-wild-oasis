@@ -3,23 +3,28 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
-
+import { login } from "../../services/apiAuth";
+import { useForm } from "react-hook-form";
+import { useLogin } from "./useLogin";
+import Spinner from "../../ui/Spinner";
 function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const { register, handleSubmit, reset } = useForm();
+  const { isLoginIn, login } = useLogin();
 
-  function handleSubmit() {}
+  function onSubmit(user) {
+    login(user, { onSuccess: reset });
+  }
+
+  if (isLoginIn) return <Spinner />;
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormRowVertical label="Email address">
         <Input
           type="email"
           id="email"
-          // This makes this form better for password managers
           autoComplete="username"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          {...register("email")}
         />
       </FormRowVertical>
       <FormRowVertical label="Password">
@@ -27,8 +32,7 @@ function LoginForm() {
           type="password"
           id="password"
           autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          {...register("password")}
         />
       </FormRowVertical>
       <FormRowVertical>
