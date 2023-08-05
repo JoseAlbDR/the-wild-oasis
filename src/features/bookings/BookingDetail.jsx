@@ -13,6 +13,7 @@ import CheckoutButton from "../check-in-out/CheckoutButton";
 
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "./useBooking";
+import { useDeleteBooking } from "./useDeleteBooking";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -24,6 +25,7 @@ function BookingDetail() {
   const { booking, isLoading, isError } = useBooking();
   const navigate = useNavigate();
   const moveBack = useMoveBack();
+  const { isDeleting, deleteBooking } = useDeleteBooking();
 
   if (isLoading) return <Spinner />;
 
@@ -54,6 +56,18 @@ function BookingDetail() {
           </Button>
         )}
         {status === "checked-in" && <CheckoutButton bookingId={bookingId} />}
+        {status !== "checked-in" && (
+          <Button
+            variation="danger"
+            disabled={isDeleting}
+            onClick={() => {
+              deleteBooking(bookingId);
+              navigate("/bookings");
+            }}
+          >
+            Delete Booking
+          </Button>
+        )}
         <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
