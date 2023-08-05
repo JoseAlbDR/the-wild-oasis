@@ -11,11 +11,13 @@ import {
 import Tag from "../../ui/Tag";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
+import Spinner from "../../ui/Spinner";
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
 import { useCheckout } from "../check-in-out/useCheckout";
-import Modal from "../../ui/Modal";
-import ConfirmDelete from "../../ui/ConfirmDelete";
+
 import { useDeleteBooking } from "./useDeleteBooking";
 
 const Cabin = styled.div`
@@ -67,6 +69,8 @@ function BookingRow({
     "checked-in": "green",
     "checked-out": "silver",
   };
+
+  if (isDeleting) return <Spinner />;
 
   return (
     <Table.Row>
