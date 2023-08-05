@@ -28,6 +28,7 @@ function BookingDetail() {
   const navigate = useNavigate();
   const moveBack = useMoveBack();
   const { isDeleting, deleteBooking } = useDeleteBooking();
+
   if (isLoading) return <Spinner />;
 
   const { status, id: bookingId } = booking;
@@ -66,8 +67,9 @@ function BookingDetail() {
               <ConfirmDelete
                 resourceName={"booking"}
                 onConfirm={() => {
-                  deleteBooking(bookingId);
-                  moveBack();
+                  deleteBooking(bookingId, {
+                    onSettled: () => navigate("/bookings"),
+                  });
                 }}
               />
             </Modal.Window>
