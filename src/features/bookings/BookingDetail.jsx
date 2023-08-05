@@ -14,6 +14,8 @@ import CheckoutButton from "../check-in-out/CheckoutButton";
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "./useBooking";
 import { useDeleteBooking } from "./useDeleteBooking";
+import Modal from "../../ui/Modal";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -26,7 +28,6 @@ function BookingDetail() {
   const navigate = useNavigate();
   const moveBack = useMoveBack();
   const { isDeleting, deleteBooking } = useDeleteBooking();
-
   if (isLoading) return <Spinner />;
 
   const { status, id: bookingId } = booking;
@@ -57,16 +58,20 @@ function BookingDetail() {
         )}
         {status === "checked-in" && <CheckoutButton bookingId={bookingId} />}
         {status !== "checked-in" && (
-          <Button
-            variation="danger"
-            disabled={isDeleting}
-            onClick={() => {
-              deleteBooking(bookingId);
-              navigate("/bookings");
-            }}
-          >
-            Delete Booking
-          </Button>
+          <Modal>
+            <Modal.Open opens="delete">
+              <Button variation="danger">Delete Booking</Button>
+            </Modal.Open>
+            <Modal.Window name="delete">
+              <ConfirmDelete
+                resourceName={"booking"}
+                onConfirm={() => {
+                  deleteBooking(bookingId);
+                  moveBack();
+                }}
+              />
+            </Modal.Window>
+          </Modal>
         )}
         <Button variation="secondary" onClick={moveBack}>
           Back
