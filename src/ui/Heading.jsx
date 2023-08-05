@@ -13,6 +13,11 @@ const types = {
     font-size: 2rem;
     font-weight: 500;
   `,
+  h4: css`
+    font-size: 3rem;
+    font-weight: 500;
+    text-align: center;
+  `,
 };
 
 const Heading = styled.h1`
