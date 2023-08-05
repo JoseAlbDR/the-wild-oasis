@@ -1,18 +1,23 @@
-import { useState } from "react";
 import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
-import { login } from "../../services/apiAuth";
 import { useForm } from "react-hook-form";
 import { useLogin } from "./useLogin";
 import Spinner from "../../ui/Spinner";
+import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const { register, handleSubmit, reset } = useForm();
+  const navigate = useNavigate();
   const { isLoginIn, login } = useLogin();
 
   function onSubmit(user) {
-    login(user, { onSuccess: reset });
+    login(user, {
+      onSuccess: () => {
+        reset();
+        navigate("/");
+      },
+    });
   }
 
   if (isLoginIn) return <Spinner />;
@@ -25,6 +30,7 @@ function LoginForm() {
           id="email"
           autoComplete="username"
           {...register("email")}
+          required
         />
       </FormRowVertical>
       <FormRowVertical label="Password">
@@ -33,6 +39,7 @@ function LoginForm() {
           id="password"
           autoComplete="current-password"
           {...register("password")}
+          required
         />
       </FormRowVertical>
       <FormRowVertical>
