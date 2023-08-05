@@ -14,7 +14,10 @@ export const useLogin = () => {
       });
       navigate("/dashboard");
     },
-    onError: (error) => toast.error(error.message, { position: "top-right" }),
+    onError: (error) => {
+      console.error("ERROR", error);
+      toast.error(error.message, { position: "top-right" });
+    },
   });
 
   return { isLoginIn, login };
