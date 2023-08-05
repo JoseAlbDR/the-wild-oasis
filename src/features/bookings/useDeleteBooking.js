@@ -13,7 +13,7 @@ export const useDeleteBooking = () => {
         position: "top-right",
       });
       queryClient.invalidateQueries({
-        queryKey: ["bookings", "booking"],
+        queryKey: ["bookings"],
       });
       navigate("/bookings");
     },
