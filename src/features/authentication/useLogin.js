@@ -16,7 +16,9 @@ export const useLogin = () => {
     },
     onError: (error) => {
       console.error("ERROR", error);
-      toast.error(error.message, { position: "top-right" });
+      toast.error("Provide email or passowrd are incorrect", {
+        position: "top-right",
+      });
     },
   });
 

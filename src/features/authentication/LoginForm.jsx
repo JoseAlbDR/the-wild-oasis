@@ -4,7 +4,7 @@ import Input from "../../ui/Input";
 import FormRowVertical from "../../ui/FormRowVertical";
 import { useForm } from "react-hook-form";
 import { useLogin } from "./useLogin";
-import Spinner from "../../ui/Spinner";
+import SpinnerMini from "../../ui/SpinnerMini";
 function LoginForm() {
   const { register, handleSubmit, reset } = useForm();
   const { isLoginIn, login } = useLogin();
@@ -14,7 +14,7 @@ function LoginForm() {
     login(user, { onSuccess: reset });
   }
 
-  if (isLoginIn) return <Spinner />;
+  // if (isLoginIn) return <Spinner />;
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -37,7 +37,7 @@ function LoginForm() {
         />
       </FormRowVertical>
       <FormRowVertical>
-        <Button size="large">Login</Button>
+        <Button size="large">{!isLoginIn ? "Login" : <SpinnerMini />}</Button>
       </FormRowVertical>
     </Form>
   );
