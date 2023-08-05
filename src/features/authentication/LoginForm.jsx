@@ -5,19 +5,12 @@ import FormRowVertical from "../../ui/FormRowVertical";
 import { useForm } from "react-hook-form";
 import { useLogin } from "./useLogin";
 import Spinner from "../../ui/Spinner";
-import { useNavigate } from "react-router-dom";
 function LoginForm() {
   const { register, handleSubmit, reset } = useForm();
-  const navigate = useNavigate();
   const { isLoginIn, login } = useLogin();
 
   function onSubmit(user) {
-    login(user, {
-      onSuccess: () => {
-        reset();
-        navigate("/");
-      },
-    });
+    login(user, { onSuccess: reset });
   }
 
   if (isLoginIn) return <Spinner />;
