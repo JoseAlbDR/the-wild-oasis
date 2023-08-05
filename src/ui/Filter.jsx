@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
-import { useUrl } from "../hooks/useUrl";
 import { useSearchParams } from "react-router-dom";
+
+import { useUrl } from "../hooks/useUrl";
 
 const StyledFilter = styled.div`
   border: 1px solid var(--color-grey-100);
