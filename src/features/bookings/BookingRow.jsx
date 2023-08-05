@@ -8,7 +8,6 @@ import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { formatCurrency } from "../../utils/helpers";
 import { formatDistanceFromNow } from "../../utils/helpers";
-import CheckoutButton from "../check-in-out/CheckoutButton";
 import { useCheckout } from "../check-in-out/useCheckout";
 
 const Cabin = styled.div`
@@ -106,6 +105,7 @@ function BookingRow({
           )}
           {status === "checked-in" && (
             <Menus.Button
+              disabled={isCheckingOut}
               icon={<HiArrowUpOnSquare />}
               onClick={() => {
                 checkOutBooking(bookingId);
