@@ -8,8 +8,13 @@ export const useCheckIn = () => {
   const navigate = useNavigate();
 
   const { isLoading: isCheckingIn, mutate: checkInBooking } = useMutation({
-    mutationFn: (id) =>
-      updateBookingApi(id, { status: "checked-in", isPaid: true }),
+    // MUTATION FN ONLY ACCEPTS ONE ARGUMENT NEED AN OBJECT FOR MULTIME ARGUMENTS
+    mutationFn: ({ bookingId, breakfast }) =>
+      updateBookingApi(bookingId, {
+        status: "checked-in",
+        isPaid: true,
+        ...breakfast,
+      }),
     // Passing data from updateBookingApi function to onSuccess
     onSuccess: (data) => {
       toast.success(`Booking ${data.id} succesfully cheked in`, {
