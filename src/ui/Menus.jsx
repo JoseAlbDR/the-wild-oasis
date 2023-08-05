@@ -4,12 +4,6 @@ import { createPortal } from "react-dom";
 import { HiEllipsisVertical } from "react-icons/hi2";
 import styled from "styled-components";
 
-const Menu = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-`;
-
 const StyledToggle = styled.button`
   background: none;
   border: none;
@@ -88,7 +82,6 @@ function Toggle({ id }) {
 
   function handleClick(e) {
     const rect = e.target.closest("button").getBoundingClientRect();
-    console.log(rect);
     setPosition({
       x: window.innerWidth - rect.width - rect.x,
       y: rect.y + rect.height + 8,
