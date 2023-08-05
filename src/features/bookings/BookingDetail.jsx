@@ -9,6 +9,8 @@ import ButtonGroup from "../../ui/ButtonGroup";
 import Button from "../../ui/Button";
 import ButtonText from "../../ui/ButtonText";
 import Spinner from "../../ui/Spinner";
+import CheckoutButton from "../check-in-out/CheckoutButton";
+
 import { useMoveBack } from "../../hooks/useMoveBack";
 import { useBooking } from "./useBooking";
 
@@ -51,6 +53,7 @@ function BookingDetail() {
             Check in
           </Button>
         )}
+        {status === "checked-in" && <CheckoutButton bookingId={bookingId} />}
         <Button variation="secondary" onClick={moveBack}>
           Back
         </Button>
