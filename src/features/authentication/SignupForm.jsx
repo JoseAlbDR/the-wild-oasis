@@ -3,15 +3,23 @@ import Button from "../../ui/Button";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
+import { useSignup } from "./useSignup";
+import SpinnerMini from "../../ui/SpinnerMini";
 
 // Email regex: /\S+@\S+\.\S+/
 
 function SignupForm() {
-  const { register, formState, handleSubmit, getValues } = useForm();
+  const { register, formState, handleSubmit, getValues, reset } = useForm();
   const { errors } = formState;
+  const { isSigningIn, signup } = useSignup();
 
-  function onSubmit(data) {
-    console.log(data);
+  function onSubmit({ email, password, fullName }) {
+    const user = {
+      email,
+      password,
+      fullName,
+    };
+    signup(user, { onSettled: () => reset() });
   }
 
   return (
@@ -20,6 +28,7 @@ function SignupForm() {
         <Input
           type="text"
           id="fullName"
+          disabled={isSigningIn}
           {...register("fullName", {
             required: "This field is required",
           })}
@@ -29,6 +38,7 @@ function SignupForm() {
       <FormRow label="Email address" error={errors?.email?.message}>
         <Input
           type="email"
+          disabled={isSigningIn}
           id="email"
           {...register("email", {
             required: "This field is required",
@@ -47,6 +57,7 @@ function SignupForm() {
         <Input
           type="password"
           id="password"
+          disabled={isSigningIn}
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -61,6 +72,7 @@ function SignupForm() {
         <Input
           type="password"
           id="passwordConfirm"
+          disabled={isSigningIn}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
@@ -74,7 +86,7 @@ function SignupForm() {
         <Button variation="secondary" type="reset">
           Cancel
         </Button>
-        <Button>Create new user</Button>
+        <Button>{isSigningIn ? <SpinnerMini /> : "Create new user"}</Button>
       </FormRow>
     </Form>
   );
