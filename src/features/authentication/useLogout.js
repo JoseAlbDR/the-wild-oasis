@@ -9,9 +9,7 @@ export const useLogout = () => {
     mutationFn: logoutApi,
     onSuccess: () => {
       toast.success("Successfully logged out", { position: "top-right" });
-      queryClient.invalidateQueries({
-        queryKey: ["user"],
-      });
+      queryClient.removeQueries();
     },
   });
 
