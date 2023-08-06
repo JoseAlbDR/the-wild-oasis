@@ -44,25 +44,25 @@ export async function logout() {
   if (error) throw new Error(error.message);
 }
 
-export async function updateCurrentUser({ password, newFullName, newAvatar }) {
+export async function updateUser({ password, fullName, avatar }) {
   // 1 Update fullName || password
   let updateData;
   if (password) updateData = { password };
-  if (newFullName) updateData = { data: { newFullName } };
+  if (fullName) updateData = { data: { fullName } };
 
-  const { data, error } = await supabase.auth.updateUser({
-    updateData,
-  });
+  const { data, error } = await supabase.auth.updateUser(updateData);
+
+  console.log(data);
 
   if (error) throw new Error(error.message);
-  if (!newAvatar) return data;
+  if (!avatar) return data;
 
   // 2 Update avatar
   const avatarName = `avatar-${data.user.id}-${Math.random()}`;
 
   const { error: avatarError } = await supabase.storage
     .from("avatars")
-    .upload(avatarName, newAvatar);
+    .upload(avatarName, avatar);
 
   if (avatarError) throw new Error(avatarError.message);
 
