@@ -14,7 +14,7 @@ export const useLogin = () => {
       toast.success(`User ${user.email} successfully logged in`, {
         position: "top-right",
       });
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     },
     onError: (error) => {
       console.error("ERROR", error);
