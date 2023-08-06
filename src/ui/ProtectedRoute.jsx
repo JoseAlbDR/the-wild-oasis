@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useGetUser } from "../features/authentication/useUser";
+import { useUser } from "../features/authentication/useUser";
 import Spinner from "./Spinner";
 import { styled } from "styled-components";
 import { useEffect } from "react";
@@ -16,7 +16,7 @@ function ProtectedRoute({ children }) {
   const navigate = useNavigate();
 
   // 1. Load the authenticated user
-  const { isLoadingUser, isAuthenticated } = useGetUser();
+  const { isLoadingUser, isAuthenticated } = useUser();
 
   // 2. If there is NO authenticaded user, redirect to the /login
   //
