@@ -1,4 +1,4 @@
-import supabase, { supabaseBucketUrl, supabaseUrl } from "./supabase";
+import supabase, { supabaseCabinsBucketUrl, supabaseUrl } from "./supabase";
 
 export async function getCabins() {
   const { data, error } = await supabase.from("cabins").select("*");
@@ -32,7 +32,7 @@ export async function addUpdateCabin(newCabin, id) {
   // If newCabin already has an image add that image, if not, upload the new one
   const imagePath = hasImagePath
     ? newCabin.image
-    : `${supabaseUrl}/${supabaseBucketUrl}/${imageName}`;
+    : `${supabaseUrl}/${supabaseCabinsBucketUrl}/${imageName}`;
 
   // Create/Update cabin
   let query = supabase.from("cabins");
