@@ -6,11 +6,9 @@ import { useLogout } from "./useLogout";
 function LogOut() {
   const { isLogingOut, logout } = useLogout();
 
-  if (isLogingOut) return <SpinnerMini />;
-
   return (
     <ButtonIcon onClick={logout}>
-      <HiArrowRightOnRectangle />
+      {isLogingOut ? <SpinnerMini /> : <HiArrowRightOnRectangle />}
     </ButtonIcon>
   );
 }
