@@ -7,7 +7,7 @@ export const useSignup = () => {
     mutationFn: signupApi,
     onSuccess: ({ user }) => {
       toast.success(
-        `User ${user.user_metadata.fullname} successfully created, Please verify the new account in user email address`,
+        `User successfully created, Please verify the new account in user email address`,
         { position: "top-right" }
       );
     },
