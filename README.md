@@ -100,27 +100,29 @@ The application uses Supabase as the backend-as-a-service platform for user auth
 1. Clone the repository: `git clone https://github.com/yourusername/the-wild-oasis.git`
 2. Install dependencies: `npm install`
 3. Set up environment variables: Create a `.env` file with Supabase credentials.
+   
 ```
 VITE_SUPABASE_KEY = <supabaseKey>
 VITE_SUPABASE_URL = <supabaseUrl>
 VITE_SUPABASE_CABINS_BUCKET_URL = <cabinsBucketUrl>
 VITE_SUPABASE_AVATARS_BUCKET_URL = <avatarsBucketUrl>
 ```
-- - Table bookings
-![bookingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/01acf329-b0af-4e1c-955b-b9864eaa41ec)
 
-- - Table cabins
-![cabinstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/5f0ab085-9d56-4703-9744-ac36bd34f7d9)
+  - Table bookings
+  - ![bookingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/01acf329-b0af-4e1c-955b-b9864eaa41ec)
+
+  - Table cabins
+  - ![cabinstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/5f0ab085-9d56-4703-9744-ac36bd34f7d9)
 
 - - Table guest
-![guesttable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/176b757c-f4dd-470d-b533-c54992f78dcc)
+  - ![guesttable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/176b757c-f4dd-470d-b533-c54992f78dcc)
 
-- - Table settings
-![settingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/db97a6d9-045f-49db-9e8f-129a191ac9e8)
-
-- - Two buckets needed:
-- - - avatars
-- - - cabins-images
+  - Table settings
+  - ![settingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/db97a6d9-045f-49db-9e8f-129a191ac9e8)
+    
+  - Two buckets needed:
+    - avatars
+    - cabins-images
 
 5. Run the development server: `npm run dev`
 6. Open the application in your browser: `http://localhost:3000`
