@@ -5,6 +5,7 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useSignup } from "./useSignup";
 import SpinnerMini from "../../ui/SpinnerMini";
+import { useUser } from "./useUser";
 
 // Email regex: /\S+@\S+\.\S+/
 
@@ -12,6 +13,9 @@ function SignupForm() {
   const { register, formState, handleSubmit, getValues, reset } = useForm();
   const { errors } = formState;
   const { isSigningIn, signup } = useSignup();
+  const { user } = useUser();
+
+  console.log(user.email);
 
   function onSubmit({ email, password, fullName }) {
     const user = {
@@ -28,7 +32,7 @@ function SignupForm() {
         <Input
           type="text"
           id="fullName"
-          disabled={isSigningIn}
+          disabled={isSigningIn || user.email !== "yusepah@gmail.com"}
           {...register("fullName", {
             required: "This field is required",
           })}
@@ -38,7 +42,7 @@ function SignupForm() {
       <FormRow label="Email address" error={errors?.email?.message}>
         <Input
           type="email"
-          disabled={isSigningIn}
+          disabled={isSigningIn || user.email !== "yusepah@gmail.com"}
           id="email"
           {...register("email", {
             required: "This field is required",
@@ -57,7 +61,7 @@ function SignupForm() {
         <Input
           type="password"
           id="password"
-          disabled={isSigningIn}
+          disabled={isSigningIn || user.email !== "yusepah@gmail.com"}
           {...register("password", {
             required: "This field is required",
             minLength: {
@@ -72,7 +76,7 @@ function SignupForm() {
         <Input
           type="password"
           id="passwordConfirm"
-          disabled={isSigningIn}
+          disabled={isSigningIn || user.email !== "yusepah@gmail.com"}
           {...register("passwordConfirm", {
             required: "This field is required",
             validate: (value) =>
