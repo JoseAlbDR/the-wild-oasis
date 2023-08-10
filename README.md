@@ -2,7 +2,6 @@
 <div align="center">
 <h1 align="center">
    <img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/89a12154-174b-4eea-9961-a837e4c725c5" height="200px" width="400px"/>
-<br>the-wild-oasis
 </h1>
 <h3>◦ Unleash the code in The Wild Oasis!</h3>
 <h3>◦ Developed with the software and tools listed below.</h3>
