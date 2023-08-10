@@ -28,13 +28,13 @@
 ## Screenshots
 
 <div align="center">
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/544da1f7-a44a-46f6-b764-235b92c74571" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/59b840bb-594a-49a9-a81a-8579cd17a64e" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/0ba796b7-2168-4760-9d4f-18e53b641364" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/7d577591-da1e-4d5d-aed7-51564db71091" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/54fb0ed2-8824-4292-bb29-6a0751e56a38" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/bd1016e2-e6a1-41b2-abbf-f743ef5e4cd1" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/736c0140-594c-4837-932f-6dc0d6715cdd" height="200px" width="300px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/544da1f7-a44a-46f6-b764-235b92c74571" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/59b840bb-594a-49a9-a81a-8579cd17a64e" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/0ba796b7-2168-4760-9d4f-18e53b641364" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/7d577591-da1e-4d5d-aed7-51564db71091" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/54fb0ed2-8824-4292-bb29-6a0751e56a38" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/bd1016e2-e6a1-41b2-abbf-f743ef5e4cd1" height="200px" width="400px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/736c0140-594c-4837-932f-6dc0d6715cdd" height="200px" width="400px"/>
 </div>
 
 ## Folder Structure
