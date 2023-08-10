@@ -1,7 +1,7 @@
 
 <div align="center">
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
+![logo-dark](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/89a12154-174b-4eea-9961-a837e4c725c5)
 <br>the-wild-oasis
 </h1>
 <h3>◦ Unleash the code in The Wild Oasis!</h3>
