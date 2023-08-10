@@ -25,65 +25,85 @@
 <img src="https://img.shields.io/github/license/JoseAlbDR/the-wild-oasis?style&color=5D6D7E" alt="GitHub license" />
 </div>
 
+## Folder Structure
+
+```
+├── public                  📁 Public files
+├── src                     📁 This is the main source code directory of the project.
+|   ├── context             📁 Contains React context providers that manage global state and data sharing across components.
+|   ├── data                📁 Contains data-related files, such as JSON files or mock data used for testing or development.
+|   ├── features            📁 Groups different application features into subfolders for better organization.
+|   |   ├── authentication  📁 Holds components, hooks, and logic related to user authentication and authorization.
+|   |   ├── bookings        📁 Components, hooks, and logic related to booking management are stored here.
+|   |   ├── cabins          📁 Components, hooks, and logic related to displaying and managing cabin information.
+|   |   ├── check-in-out    📁 Contains components, hooks, and logic for handling guest check-in and check-out processes.
+|   |   ├── dashboard       📁 Components, hooks, and logic for displaying an overview dashboard of resort activities and statistics.
+|   |   ├── settings        📁 Components, hooks, and logic for configuring application settings and preferences.
+|   ├── hooks               📁 Custom React hooks that provide reusable functionality across components.
+|   ├── pages               📁 This is where the main page components of the application are stored. Each page corresponds to a specific route.
+|   ├── services            📁 Components related to external services or APIs used in the application. These could include data fetching or authentication services.
+|   ├── styles              📁 This folder may contain global styles, theme files, or CSS-in-JS setup for styling the application.
+|   ├── ui                  📁 Reusable UI components that are not directly tied to any specific application feature.
+|   ├── utils               📁 Utility functions or helper modules that provide common functionality used throughout the application.
+|   ├── App.jsx             📄 The main entry point of the application where the routing and layout are set up.
+|   ├── main.jsx            📄 The main file where the application is rendered and mounted into the DOM.
+```
+
+## Summary
+
+The Wild Oasis is a web application developed using React, designed for managing bookings, cabins, and user accounts for a wilderness resort. It provides features for user authentication, booking management, cabin details, check-in/out procedures, and more.
+
+## Features
+
+- User Authentication: Allows users to sign up and log in to the application.
+- Booking Management: Provides tools for viewing and managing bookings.
+- Cabin Details: Displays information about available cabins and their features.
+- Check-In/Out Procedures: Manages the process of checking in and checking out guests.
+- Dashboard: Offers an overview of resort activities, stays, and more.
+- Settings: Allows administrators to configure various application settings.
+
+## Dependencies
+
+- **@emotion/react**: CSS-in-JS library for styling React components.
+- **@mui/material**: UI component library based on Material-UI design principles.
+- **@supabase/supabase-js**: JavaScript client library for Supabase, a backend-as-a-service platform.
+- **@tanstack/react-query**: Data fetching and caching library for React applications.
+- **date-fns**: Utility library for working with dates.
+- **dotenv**: Loads environment variables from a .env file.
+- **react**: JavaScript library for building user interfaces.
+- **react-dom**: Provides DOM-specific methods for React components.
+- **react-error-boundary**: Handles errors in React components.
+- **react-hook-form**: Library for managing form state and validation in React.
+- **react-hot-toast**: Notifications library for displaying toasts.
+- **react-icons**: Library for popular icon packs.
+- **react-router-dom**: Declarative routing for React applications.
+- **recharts**: Charting library for creating data-driven visualizations.
+- **styled-components**: CSS-in-JS library for creating styled components.
+
+## Services
+
+The application uses Supabase as the backend-as-a-service platform for user authentication and data storage.
+
+## Used Technologies
+
+- **React**: JavaScript library for building user interfaces.
+- **React Query**: Data fetching and caching library.
+- **React Router**: Declarative routing for React applications.
+- **Styled Components**: CSS-in-JS library for styling components.
+- **Supabase**: Backend-as-a-service platform for authentication and data storage.
+
+## Installation and Use
+
+1. Clone the repository: `git clone https://github.com/yourusername/the-wild-oasis.git`
+2. Install dependencies: `npm install`
+3. Set up environment variables: Create a `.env` file with Supabase credentials.
+4. Run the development server: `npm run dev`
+5. Open the application in your browser: `http://localhost:3000`
+
+## Contribution
+
+Contributions are welcome! If you find any issues or want to enhance the application, feel free to create pull requests or raise issues in the repository.
+
 ---
 
-# Proyecto de Gestión de Reservas y Administración de Hoteles
-
-Este proyecto es una aplicación web de administración de hoteles que permite gestionar reservas, cabanas, usuarios y configuraciones del hotel. La aplicación utiliza tecnologías como React, Styled Components y Supabase para crear una interfaz de usuario moderna y funcional.
-
-## Características Principales
-
-- **Gestión de Reservas:** Permite visualizar, agregar, editar y eliminar reservas. Proporciona filtrado, paginación y ordenamiento de las reservas.
-
-- **Gestión de Cabanas:** Permite visualizar, agregar, editar y eliminar información sobre las cabanas disponibles en el hotel.
-
-- **Gestión de Usuarios:** Permite a los usuarios registrarse, iniciar sesión y actualizar su información de perfil, incluyendo nombre, imagen de avatar y contraseña.
-
-- **Configuración del Hotel:** Permite actualizar la configuración general del hotel, como tarifas, políticas y detalles de contacto.
-
-- **Dashboard:** Proporciona un panel de control que muestra estadísticas y gráficos relacionados con las reservas y la ocupación del hotel.
-
-- **Interfaz Moderna:** Utiliza Styled Components para crear una interfaz de usuario moderna y atractiva.
-
-## Estructura del Proyecto
-
-El proyecto está estructurado en diferentes carpetas para facilitar la organización y el mantenimiento:
-
-- **src/components:** Contiene componentes de interfaz de usuario reutilizables.
-
-- **src/features:** Contiene módulos relacionados con características específicas, como autenticación, reservas, cabanas y configuración.
-
-- **src/hooks:** Contiene custom hooks utilizados en toda la aplicación para abstraer la lógica común.
-
-- **src/pages:** Contiene los componentes de las páginas principales de la aplicación, como la página de inicio de sesión, panel de control, gestión de reservas, gestión de cabanas, etc.
-
-- **src/services:** Contiene los servicios de API que interactúan con la base de datos y el backend.
-
-## Instalación y Uso
-
-1. Clona este repositorio en tu máquina local.
-
-2. Instala las dependencias con el comando: `npm install`.
-
-3. Configura las variables de entorno en el archivo `.env` para la conexión con Supabase.
-
-4. Ejecuta la aplicación con el comando: `npm start`.
-
-## Tecnologías Utilizadas
-
-- React
-- Styled Components
-- Supabase (base de datos y autenticación)
-
-## Contribución
-
-Si deseas contribuir a este proyecto, ¡te damos la bienvenida! Puedes abrir un problema para discutir nuevas características o mejoras, o enviar una solicitud de extracción para proponer cambios en el código.
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
-
----
-
-**Nota:** Este README.md es un ejemplo general y puede ser personalizado según las necesidades específicas del proyecto.
-
+*This project was developed by [J. Alberto Delgado](https://www.jdelgadorobles.com).*
