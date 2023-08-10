@@ -34,7 +34,7 @@
 <img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/7d577591-da1e-4d5d-aed7-51564db71091" height="200px" width="300px"/>
 <img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/54fb0ed2-8824-4292-bb29-6a0751e56a38" height="200px" width="300px"/>
 <img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/bd1016e2-e6a1-41b2-abbf-f743ef5e4cd1" height="200px" width="300px"/>
-<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/4081469f-c2d4-4b48-b3b0-a123df25d4d" height="200px" width="300px"/>
+<img src="https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/736c0140-594c-4837-932f-6dc0d6715cdd" height="200px" width="300px"/>
 </div>
 
 ## Folder Structure
