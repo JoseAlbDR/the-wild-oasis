@@ -108,25 +108,25 @@ VITE_SUPABASE_CABINS_BUCKET_URL = <cabinsBucketUrl>
 VITE_SUPABASE_AVATARS_BUCKET_URL = <avatarsBucketUrl>
 ```
 
-  - Table bookings
+- Table bookings
     
    ![bookingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/01acf329-b0af-4e1c-955b-b9864eaa41ec)
 
-  - Table cabins
+- Table cabins
     
    ![cabinstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/5f0ab085-9d56-4703-9744-ac36bd34f7d9)
 
-  - Table guest
+- Table guest
     
    ![guesttable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/176b757c-f4dd-470d-b533-c54992f78dcc)
 
-  - Table settings
+- Table settings
     
    ![settingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/db97a6d9-045f-49db-9e8f-129a191ac9e8)
     
-  - Two buckets needed:
-    - avatars
-    - cabins-images
+- Two buckets needed:
+   - avatars
+   - cabins-images
 
 5. Run the development server: `npm run dev`
 6. Open the application in your browser: `http://localhost:3000`
