@@ -109,16 +109,20 @@ VITE_SUPABASE_AVATARS_BUCKET_URL = <avatarsBucketUrl>
 ```
 
   - Table bookings
-  - ![bookingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/01acf329-b0af-4e1c-955b-b9864eaa41ec)
+    
+   ![bookingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/01acf329-b0af-4e1c-955b-b9864eaa41ec)
 
   - Table cabins
-  - ![cabinstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/5f0ab085-9d56-4703-9744-ac36bd34f7d9)
+    
+   ![cabinstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/5f0ab085-9d56-4703-9744-ac36bd34f7d9)
 
-- - Table guest
-  - ![guesttable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/176b757c-f4dd-470d-b533-c54992f78dcc)
+  - Table guest
+    
+   ![guesttable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/176b757c-f4dd-470d-b533-c54992f78dcc)
 
   - Table settings
-  - ![settingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/db97a6d9-045f-49db-9e8f-129a191ac9e8)
+    
+   ![settingstable](https://github.com/JoseAlbDR/the-wild-oasis/assets/128265706/db97a6d9-045f-49db-9e8f-129a191ac9e8)
     
   - Two buckets needed:
     - avatars
