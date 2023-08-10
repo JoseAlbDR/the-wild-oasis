@@ -55,12 +55,15 @@ The Wild Oasis is a web application developed using React, designed for managing
 
 ## Features
 
+- Dark Mode Button: Allows to switch between Dark/Light style modes.
 - User Authentication: Allows users to sign up and log in to the application.
 - Booking Management: Provides tools for viewing and managing bookings.
 - Cabin Details: Displays information about available cabins and their features.
 - Check-In/Out Procedures: Manages the process of checking in and checking out guests.
 - Dashboard: Offers an overview of resort activities, stays, and more.
 - Settings: Allows administrators to configure various application settings.
+- Account Settings: Allows to change User settings like Full Name, Avatar Image or Password.
+- Filter: Bookings and Cabings pages have Filter and Sort features.
 
 ## Dependencies
 
@@ -97,8 +100,14 @@ The application uses Supabase as the backend-as-a-service platform for user auth
 1. Clone the repository: `git clone https://github.com/yourusername/the-wild-oasis.git`
 2. Install dependencies: `npm install`
 3. Set up environment variables: Create a `.env` file with Supabase credentials.
-4. Run the development server: `npm run dev`
-5. Open the application in your browser: `http://localhost:3000`
+```
+VITE_SUPABASE_KEY = <supabaseKey>
+VITE_SUPABASE_URL = <supabaseUrl>
+VITE_SUPABASE_CABINS_BUCKET_URL = <cabinsBucketUrl>
+VITE_SUPABASE_AVATARS_BUCKET_URL = <avatarsBucketUrl>
+```
+5. Run the development server: `npm run dev`
+6. Open the application in your browser: `http://localhost:3000`
 
 ## Contribution
 
