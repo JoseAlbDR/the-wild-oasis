@@ -149,4 +149,4 @@ Contributions are welcome! If you find any issues or want to enhance the applica
 
 ---
 
-*This project was developed by [J. Alberto Delgado](https://www.jdelgadorobles.com).*
+*This project was developed by [J. Alberto Delgado](https://www.jadelgadorobles.com).*
