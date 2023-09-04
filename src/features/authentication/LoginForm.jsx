@@ -21,6 +21,7 @@ function LoginForm() {
           disabled={isLoginIn}
           type="email"
           id="email"
+          default="test@test.com"
           autoComplete="username"
           {...register("email")}
           required
@@ -31,6 +32,7 @@ function LoginForm() {
           disabled={isLoginIn}
           type="password"
           id="password"
+          default="testmenow"
           autoComplete="current-password"
           {...register("password")}
           required
